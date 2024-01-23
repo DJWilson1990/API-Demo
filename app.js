@@ -15,17 +15,17 @@ async function getMyStuffFromOverThere() {
   console.log("JSON Data:", json);
 }
 
-getMyStuffFromOverThere();
+// getMyStuffFromOverThere();
 
 // //done without using async/await. uses .then() method. will most likely use the above method in most cases though.
-fetch("https://jsonplaceholder.typicode.com/todos/1")
-  .then(function (response) {
-    console.log("HTTP Response:", response);
-    return response.json();
-  })
-  .then(function (json) {
-    console.log("JSON Data:", json);
-  });
+// fetch("https://jsonplaceholder.typicode.com/todos/1")
+//   .then(function (response) {
+//     console.log("HTTP Response:", response);
+//     return response.json();
+//   })
+//   .then(function (json) {
+//     console.log("JSON Data:", json);
+//   });
 
 //HANDLING THE RESPONSE
 //The return value from calling the Fetch API with await fetch is a Response object.
@@ -74,24 +74,38 @@ async function search(queryParam) {
 
 let imagecontainer = document.getElementById("img-container");
 
-//Sams Demo...
-// const form = document.getElementById("form");
-
-// form.addEventListener("submit", function (event) {
-//   event.preventDefault();
-//   let query = event.target.input.value;
-//   search(query);
-// });
-
-// async function search(queryParam) {
-//   let response = await fetch(
-//     `https://api.unsplash.com/search/photos?page=1&query=${queryParam}&client_id=ib4uIfBhjX9GrxzV6cztReU-W-_T6UMr5JRI5abvXjA`
-//   );
+///Strava API Request
+// async function getInfo() {
+//   const response =
+//     await fetch(`https://developers.strava.com/docs/reference/#api-Athletes-getLoggedInAthlete \
+//   -H 'Authorization: Bearer b1f6d1fa863f0f5d4b740f72759993300b75a92a`);
 //   console.log(response);
 //   let data = await response.json();
-//   console.log(data.results);
-
-//   let img = document.createElement("img");
-//   img.src = data.results;
-//   imagecontainer.appendChild(img);
+//   console.log(json);
 // }
+
+// async function getData() {
+//   const response = await fetch(`https://www.strava.com/api/v3/athlete \
+//   -H 'Authorization: Bearer b1f6d1fa863f0f5d4b740f72759993300b75a92a`);
+//   console.log("HTTP response:", response);
+//   let json = await response.json;
+//   console.log("JSON Data:", json);
+// }
+
+//ball dont lie data API
+
+let datacontainer = document.getElementById("bball-container");
+
+async function getData() {
+  const response = await fetch(`https://www.balldontlie.io/api/v1/players`); //webpage where API is coming from
+  console.log("HTTP Response:", response);
+  const json = await response.json();
+  console.log("JSON Data:", json);
+  for (let i = 10; i < 17; i++) {
+    //loop created to specify data fields. data, array 10 - 17
+    let h2 = document.createElement("h2"); //creating element for text information
+    h2.textContent = json.data[i].first_name; //getting the first name data and putting it in browser as an h2 element.
+    datacontainer.appendChild(h2); //telling it where to put the information. data container, h2
+  }
+}
+getData(); //calling the function
