@@ -74,24 +74,6 @@ async function search(queryParam) {
 
 let imagecontainer = document.getElementById("img-container");
 
-///Strava API Request
-// async function getInfo() {
-//   const response =
-//     await fetch(`https://developers.strava.com/docs/reference/#api-Athletes-getLoggedInAthlete \
-//   -H 'Authorization: Bearer b1f6d1fa863f0f5d4b740f72759993300b75a92a`);
-//   console.log(response);
-//   let data = await response.json();
-//   console.log(json);
-// }
-
-// async function getData() {
-//   const response = await fetch(`https://www.strava.com/api/v3/athlete \
-//   -H 'Authorization: Bearer b1f6d1fa863f0f5d4b740f72759993300b75a92a`);
-//   console.log("HTTP response:", response);
-//   let json = await response.json;
-//   console.log("JSON Data:", json);
-// }
-
 //ball dont lie data API
 
 let datacontainer = document.getElementById("bball-container");
